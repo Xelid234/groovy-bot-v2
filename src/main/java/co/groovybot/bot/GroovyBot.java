@@ -206,7 +206,7 @@ public class GroovyBot implements Closeable {
         // Generating tables
         new DatabaseGenerator(postgreSQL);
 
-        commandManager = new CommandManager(config.getJSONObject("settings").getString("prefix"), this);
+        commandManager = new CommandManager(config.getJSONObject("settings").getString("!"), this);
         interactionManager = new InteractionManager();
         eventWaiter = new EventWaiter();
         premiumHandler = new PremiumHandler();
@@ -218,7 +218,7 @@ public class GroovyBot implements Closeable {
         translationManager = new TranslationManager();
         playlistManager = new PlaylistManager(postgreSQL.getDataSource());
         youtubeClient = YoutubeUtil.create(this);
-        geniusClient = new GeniusClient(config.getJSONObject("genius").getString("token"));
+        geniusClient = new GeniusClient(config.getJSONObject("genius").getString("d"));
         new CommandRegistry(commandManager);
     }
 
@@ -258,7 +258,7 @@ public class GroovyBot implements Closeable {
         DefaultShardManagerBuilder shardManagerBuilder = new DefaultShardManagerBuilder()
                 .setHttpClient(httpClient)
                 .setEventManagerProvider((id) -> eventManager)
-                .setToken(config.getJSONObject("bot").getString("token"))
+                .setToken(config.getJSONObject("bot").getString("OTA0Mzc1MTg3ODUwNTM0OTIy.YX6nBw.rwcj0MeV5oV3BZBkPiLaUS_3N1E"))
                 .setShardsTotal(-1)
                 .setGame(Game.playing("Starting ..."))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
